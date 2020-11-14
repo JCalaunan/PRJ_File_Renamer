@@ -8,16 +8,17 @@ import os # to make change to files, folders, etc
 #os.rename # to rename files
 
 def rename_dates():
+    # FUTURE (USER TO CHOOSE)
     folder = os.listdir() # lists current files in folder
     print(folder)
 
     # loop through folder list
     # read in old time format (DD MMM YY - DD MMM YY)
-    for file in folder:
+    for num, file in enumerate(folder):
 
         # read in file and separate extension
         f_name, f_ext = os.path.splitext(file) # prints results after
-        if f_ext == '.pdf':
+        if f_ext == '.pdf': # FUTURE (USER TO CHOOSE)
             olddate = f_name.split(' - ') # split period 1 and period 2
             
             # probably best to loop this, change later
@@ -43,8 +44,10 @@ def rename_dates():
             os.rename(file, newfile)
         else:
             continue
+    return num;
 
-        return 0;
+num_renamed = rename_dates()  # CALL FUNC
+print("{} files changed", num_renamed)
+print("I'm done")
 
-
-rename_dates()
+exit()
